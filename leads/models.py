@@ -8,6 +8,9 @@ class User(AbstractUser):
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) #1 agent = 1 user
 
+    def __str__(self):
+        return self.user.email
+
 class Lead(models.Model):
 
     company_name = models.CharField(max_length=30)
@@ -26,3 +29,5 @@ class Lead(models.Model):
          
     # profile_picture = models.ImageField(blank=True, null=True)
     # special_files = models.FileField(blank=True, null=True)
+    def __str__(self):
+        return f"{self.company_name} {self.name_surname}"
