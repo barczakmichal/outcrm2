@@ -19,7 +19,3 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
-"""
-Try a commnet to push and compare changes what now? 
-
-"""
