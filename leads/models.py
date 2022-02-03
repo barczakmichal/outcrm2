@@ -6,28 +6,36 @@ class User(AbstractUser):
     pass
 
 class Agent(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) #1 agent = 1 user
+    user = models.OneToOneField(User, on_delete=models.CASCADE) #1 agent = 1 client
 
     def __str__(self):
         return self.user.email
 
-class Lead(models.Model):
+class Client(models.Model):
 
-    company_name = models.CharField(max_length=30)
-    name_surname = models.CharField(max_length=30)
-    age = models.SmallIntegerField(default=0)
+    short_name = models.CharField(max_length=64, unique=True, blank=True, null=True)
+    full_name = models.CharField(max_length=64)
+    city = models.CharField(max_length=64)
+    website = models.CharField(max_length=64)
+    tax_number = models.PositiveBigIntegerField(max_length=10,unique=True)
     email = models.EmailField(blank=True)
-    agent = models.ForeignKey("Agent", on_delete=models.SET_NULL, null=True)  # all leads neet to have owner
+    agent = models.ForeignKey("Agent", on_delete=models.SET_NULL, null=True)  # all leads/client neet to have owner
     phoned = models.BooleanField(default=False) 
-    # SOURCE_CHOUICES = (
-    #     ('FB', 'Facebook'),
-    #     ('Ads', "Google Ads"),
-    #     ('NSL', 'Newsletter'),
-    #     ('Other', 'Other'),
-    # )
-    # source = models.CharField(choices=SOURCE_CHOUICES, max_length=100, default=True)    
-         
-    # profile_picture = models.ImageField(blank=True, null=True)
-    # special_files = models.FileField(blank=True, null=True)
+    source_lead = models.CharField(max_length=64)
+    status = models.CharField(max_length=32)
+    created = models.DateField(auto_now_add=True)
+
     def __str__(self):
-        return f"{self.company_name} {self.name_surname}"
+        return f"{self.short_name}"
+
+class PersonInCompany(models.Model):
+    surname = models.CharField(max_length=64)
+    name = models.CharField(max_length=64)
+    phone_number = models.SmallIntegerField(max_length=10,unique=True)
+    email = models.EmailField(max_length=64)
+    position = models.CharField(max_length=64)
+    notes = models.CharField(max_length=64)
+    company = models.ForeignKey("Client", on_delete=models.SET_NULL, null=True)  # all person neet to have company)
+
+    def __str__(self):
+        return f'{self.name} {self.surname}'
