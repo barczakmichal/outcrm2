@@ -1,0 +1,61 @@
+<li class="nav-item">
+                              <button class="badge-light-primary btn-block btn-mail w-100" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="me-2" data-feather="users"></i> New Contacts</button>
+                              <div class="modal fade modal-bookmark" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Dodawanie klienta</h5>
+                                      <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                      <form class="form-bookmark needs-validation" id="bookmark-form" novalidate="">
+                                        <div class="row g-2">
+                                          <div class="mb-3 col-md-12 mt-0">
+                                            <label for="con-name">Nazwa</label>
+                                            <div class="row">
+                                              <div class="col-sm-6">
+                                                <input class="form-control" id="short_name" type="text" required="" placeholder="Nazwa skrócona" autocomplete="off">
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" id="full_name" type="text" placeholder="Pełna nazwa" autocomplete="off">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="mb-3 col-md-12 mt-0">
+                                            <label for="con-mail">Strona www</label>
+                                            <input class="form-control" id="website" type="text" required="" autocomplete="off">
+                                          </div>
+
+                                          <div class="mb-3 col-md-12 my-0">
+                                            <label for="con-phone">Status</label>
+                                            <div class="row">
+                                              <div class="col-sm-6">
+                                                <input class="form-control" id="con-phone" type="text" required="" autocomplete="off">
+                                              </div>
+
+                                              <div class="col-sm-6">
+                                                <select class="form-control" id="status">
+                                                  <option>LEAD</option>
+                                                  <option>Pierwsza oferta </option>
+                                                  <option>Odbiór oferty </option>
+                                                  <option>Negocjacje</option>
+                                                  <option>Finalizacja</option>
+                                                  <option>Aktywny klient</option>
+                                                  <option>Nieaktywny klient</option>
+                                                  <option>Archiwum</option>
+
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <input id="index_var" type="hidden" value="5">
+                                        <button class="btn btn-secondary" type="submit" onclick="submitContact()">Save</button>
+                                        <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Cancel</button>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
