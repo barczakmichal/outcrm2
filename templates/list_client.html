@@ -3,7 +3,6 @@
 {% block content %}
 
 
-
 <div class="page-body">
           <div class="container-fluid">
             <div class="page-title">
@@ -39,9 +38,9 @@
                       <tbody>
 
                         <tr>
-                            <td>{{ client.short_name }}</td>
+                            <td> <a href="/clients/{{ client.pk }}"> {{ client.short_name }}</a> </td>
                             <td>{{ client.full_name }}</td>
-                            <td> <a href="{{ client.website }}">{{ client.website }}</a> </td>
+                            <td> {{ client.website }} {{ client.website }}</td>
                             <td> {{ client.source_lead }}</td>
                             <td>{{ client.status }}</td>
                         </tr>
@@ -90,7 +89,7 @@
                            <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      {% comment %} <tbody>
                         <tr>
                             <td>{{ client.short_name }}</td>
                             <td>{{ client.full_name }}</td>
@@ -99,7 +98,7 @@
                             <td>{{ client.status }}</td>
                         </tr>
 
-                      </tbody>
+                      </tbody> {% endcomment %}
                     </table>
                       {% endfor %}
                   </div>

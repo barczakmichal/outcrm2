@@ -1,0 +1,39 @@
+
+
+
+<h1> To są detale klienta "{{ client.short_name }}"</h1>
+
+<table class="table table-xl">
+    <thead>
+      <tr>
+        <th>Nazwa skrócona</th>
+        <th>Pełna nazwa</th>
+        <th>Strona</th>
+        <th>Główny telefon</th>
+         <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+          <td> <a href="/clients/{{ client.pk }}"> {{ client.short_name }}</a> </td>
+          <td>{{ client.full_name }}</td>
+          <td> {{ client.website }} {{ client.website }}</td>
+          <td> {{ client.source_lead }}</td>
+          <td>{{ client.status }}</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+<!--                    FORM ADD NEW-->
+          <td>
+
+              <button class="badge-light-primary btn-block btn-mail w-100" type="button" ><i class="me-2" data-feather="users"></i><a href="/client/add/">Dodaj nowy </a></button>
+
+          </td>
+      </tr>
+
+    </tbody>
+  </table>

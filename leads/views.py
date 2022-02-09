@@ -5,12 +5,20 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .models import Client as Client
 
-def home_page(request):
-    ClientList = Client.objects.all()
+def client_list(request):
+    client_list = Client.objects.all()
     context = {
-        "clientList":ClientList
+        "client_list":client_list
         }
-    return render(request, "home_page.html", context)
+    return render(request, "clients/list_client.html", context)
+
+
+def lead_detail(request, pk):
+    client = Client.objects.get(id=pk)
+    context = {
+        "client":client
+        }
+    return render(request, "leads/client_detail.html", context)
 
 class ClientAdd(View):
 
