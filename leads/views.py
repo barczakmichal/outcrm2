@@ -5,6 +5,13 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .models import Client as Client
 
+def home_page(request):
+    ClientList = Client.objects.all()
+    context = {
+        "clientList":ClientList
+        }
+    return render(request, "home_page.html", context)
+
 class ClientAdd(View):
 
     def get(self, request):

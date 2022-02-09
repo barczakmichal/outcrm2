@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from leads.views import ClientAdd, ClientList
+from leads.views import home_page, ClientAdd, ClientList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_page),
     path('client/add/', ClientAdd.as_view()),
     path('client/list/', ClientList.as_view())
 ]
