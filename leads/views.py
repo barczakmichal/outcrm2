@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import Client as Client
+from .forms import LeadForm
 
 def client_list(request):
     client_list = Client.objects.all()
@@ -20,10 +21,16 @@ def lead_detail(request, pk):
         }
     return render(request, "leads/client_detail.html", context)
 
+def lead_create(request):
+    context = {
+        "form":LeadForm()
+    }
+    return render(request,'add_new_client.html',context)
+
 class ClientAdd(View):
 
     def get(self, request):
-        return render(request, 'add_client.html')
+        return render(request, 'add_new_client.html')
 
     def post(self, request):
         short_name = request.POST.get('short_name')
