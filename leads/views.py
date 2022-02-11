@@ -1,5 +1,6 @@
 from datetime import datetime
 import email
+from multiprocessing import context
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
 from django.views import View
@@ -22,8 +23,15 @@ def lead_detail(request, pk):
     return render(request, "leads/client_detail.html", context)
 
 def lead_create(request):
+    form = LeadForm()
+    if request.method == "POST":
+        print('Reciving')
+        form = LeadForm(request.POST)
+        if form.is_valid():
+            print("is valid")
+            print(form.cleaned_data)
     context = {
-        "form":LeadForm()
+        "form":form
     }
     return render(request,'add_new_client.html',context)
 

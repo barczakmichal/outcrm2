@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+</head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,14 +33,18 @@
     <link id="color" rel="stylesheet" href="/static/assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="/static/assets/css/responsive.css">
-  </head>
+</head>
+
 <body>
 
  
+<h1>
+ <a href="/list_client">Back to list<a/>  
+</h1>
 
 <div class="modal-body">
   <form method="post" class="form-bookmark needs-validation" id="bookmark-form" novalidate="">
-    {% {% csrf_token %} %}
+    {% csrf_token %}
     <div class="row g-2">
       <div class="mb-3 col-md-12 mt-0">
         {{ form.as_p }}
@@ -49,7 +53,6 @@
     </div>
     <input id="index_var" type="hidden" value="5">
     <button class="btn btn-secondary" type="submit" onclick="submitContact()">Save</button>
-    <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Cancel</button>
   </form>
 </div>
 
